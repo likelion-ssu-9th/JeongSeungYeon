@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+<head>
+	{% load static %}
+	<!-- {% block extrahead %} -->
+	<link href="{% static 'css/profile.css'%}" rel="stylesheet" type="text/css"/>
+<!-- {% endblock %} -->
+</head>
+{% block content %}
+<body>
+<header>
+	<div class="container">
+		<div class="profile">
+			<div class="profileImg">
+                <button class="imgbtn" title="프로필 사진 바꾸기">
+				<img src="{% static 'img/ssu_likelion_logo_150x150.png'%}" alt="">
+            	</button>
+			</div>
+
+			<div class="profileUserSetting">
+				<h1 class="profileUserName">{{user.username}}</h1>
+				<button class="profileEdit">프로필 편집</button>
+			</div>
+
+			<div class="profileStats">
+				<ul>
+					<li><span class="profileStatsNum">000</span> 게시물</li>
+					<li><span class="profileStatsNum">000</span> 팔로워</li>
+					<li><span class="profileStatsNum">000</span> 팔로잉</li>
+				</ul>
+			</div>
+
+			<div class="profileIntro">
+				<p class="profileIntroduce">hello world✈️</p>
+			</div>
+		</div>
+		<!-- End of profile section -->
+	</div>
+	<!-- End of container -->
+</header>
+
+<main>
+	{%for post in user_posts%}
+	<div class="galleryContainer">
+		<div class="gallery">
+			<div class="galleryPicture" tabindex="0">
+				<img src="{{post.image.url}}" class="galleryImg" alt="">
+				<div class="galleryPictureInfo">
+					<ul>
+						<li class="galleryPictureLikes"><span class="visualHiddenInfo">Likes:</span><i class="heart" aria-hidden="true"></i> 0</li>
+						<li class="galleryPictureComments"><span class="visualHiddenInfo">Comments:</span><i class="comment" aria-hidden="true"></i> 0</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<!-- End of gallery -->
+	</div>
+	{% endfor %}
+
+	<!-- End of container -->
+</main>
+</body>
+
+{%endblock%}

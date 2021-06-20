@@ -1,0 +1,14 @@
+.submit {
+    width: 350px;
+    height: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 500px;
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border: 1px solid #DBDBDB;
+}

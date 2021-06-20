@@ -1,0 +1,19 @@
+{%extends 'base.html'}
+<head>
+
+    {%load static%}
+    <link href = "{%static 'css/new.css' %}" rel = "stylesheet" type="text/css"/>
+    </head>
+    {%block content%}
+
+    <div class = "submit">
+
+    <form action = "{% url 'create' %}" method = "post" enctype = "multipart/form-data">
+    {%csrf_token%}
+    <p> photo : <input type = "file" name = "image"></p>
+    <button type = "submit">Posting ! </button>
+    </form>
+
+    </div>
+</head>
+{%endblock%}

@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram</title>
+  <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="{% static 'img/icon.png'%}">
+</head>
+
+<body>
+  <header>
+    <div class="left_box">
+      <div class="favicon_frame">
+        <img class="faviconFrame" src="{% static 'img/line_favicon.png'%}" alt="인스타 로고" />
+      </div>
+      <div class="line">
+        <a href="{%url 'feed'%}">
+        <img class="logo" src="{% static 'img/logo_text.png'%}" alt="인스타 글씨" />
+        </a>
+    </div>
+    </div>
+    <div class="right_box">
+      <div class="heart_box">
+        <a href="{%url 'new'%}">
+        <img class="heart" src="{% static 'img/new.png'%}" alt="글 작성" />
+        </a>
+      </div>
+      <div class="myInfo_box">
+          <a href="{%url 'profile'%}">
+                <img class="myInfo" src="{% static 'img/myinfo.png'%}" alt="내 프로필" />
+          </a>
+      </div>
+
+      {% if user.is_authenticated %}
+        <li class="navbar_item"><a href="{% url 'logout' %}">logout</a></li>
+      {% endif %}
+
+      {% if not user.is_authenticated %}
+        <li class="navbar_item"><a href="{% url 'login' %}">login</a></li>
+      {% endif %}
+
+      {% if user.is_authenticated %}
+        <div class="showID">{{user.username}}</div>
+      {% endif%}
+
+    </div>
+  </header>
+</body>
+</html>
