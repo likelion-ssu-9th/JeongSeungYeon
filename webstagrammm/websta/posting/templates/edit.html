@@ -1,13 +1,15 @@
-{%extends 'base.html'%}
-<head>
+{% extends 'base.html'%}
+<html>
+    {% block content %}
 
-    {%load static%}
-    <!-- {%block extrahead % } -->
+<head>
+    <meta charset="UTF-8">
+    <title>Instagram</title>
+    {% load static %}
 
     <link href = "{%static 'css/new.css' %}" rel = "stylesheet" type="text/css"/>
 
     </head>
-    {%block content%}
     <div class = "submit">
 
     <form action = "{% url 'update' post.id %}" method = "post" enctype = "multipart/form-data">
