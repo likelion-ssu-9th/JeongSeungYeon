@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        {{user.username}}
+    {% endif %}
+    <!-- {{blogs}} -->
+    <h1>Blog project</h1>
+    <div>
+        <a href="{% url 'new' %}">글 작성을 해보아요</a>
+
+    <hr>
+    </div>
+    {% for blog in blogs %}
+    <div>
+        <h3>{{blog.title}}</h3>
+        
+        {{blog.writer}}
+        <br><br>
+        {{blog.summary}}<a href = "{%url 'detail' blog.id%}">..more</a>
+        
+        <br><br>
+        <hr>
+    {% endfor %}
+    </div>
+{% endblock %}
