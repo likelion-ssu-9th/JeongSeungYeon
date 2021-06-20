@@ -7,8 +7,8 @@ def feed(request):
     return render(request,'feed.html',{'posts':posts})
 
 def profile(request):
-    feeds = post.objects.all()
-    return render(request,'profile.html',{'feeds':feeds})
+    posts = post.objects.all()
+    return render(request,'profile.html',{'posts':posts})
 
 def new(request):
     return render(request,'new.html')
