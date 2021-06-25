@@ -22,13 +22,12 @@ def create(request):
 
 def edit(request,id):
     edit_post = post.objects.get(id=id)
-
     return render(request,'edit.html',{'post':edit_post})
 
 def update(request, id):
     update_post = post.objects.get(id=id)
     update_post.user = request.user
-    update_post,image = request.FILES['image']
+    update_post.image = request.FILES['image']
     update_post.save()
 
     return redirect('feed')
